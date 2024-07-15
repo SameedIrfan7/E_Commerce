@@ -1,4 +1,5 @@
 import manage #
+import os
 """
 Django settings for mysite project.
 
@@ -27,7 +28,7 @@ SECRET_KEY = 'django-insecure-&7blgubh8f^r+cj^8s2$ljkgmqb0dk^^-72psg^8ua(y9thg3k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 
 
 # Application definition
@@ -142,3 +143,7 @@ str2 = str1.split('\n')[1]
 k_and_s = str2.split(',')
 RAZOR_KEY_ID = k_and_s[0]
 RAZOR_KEY_SECRET = k_and_s[1]
+
+
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')

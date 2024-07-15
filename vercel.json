@@ -1,0 +1,33 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "manage.py",
+        "use": "@vercel/python"
+      },
+      {
+        "src": "seller/wsgi.py",
+        "use": "@vercel/python-wsgi"
+      },
+      {
+        "src": "buyer/wsgi.py",
+        "use": "@vercel/python-wsgi"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/seller/(.*)",
+        "dest": "seller/wsgi.py"
+      },
+      {
+        "src": "/buyer/(.*)",
+        "dest": "buyer/wsgi.py"
+      }
+    ],
+    "env": {
+      "DJANGO_SETTINGS_MODULE": "your_project.settings",
+      "SECRET_KEY": "your_secret_key",
+      "DATABASE_URL": "your_database_url"
+    }
+  }
+  
